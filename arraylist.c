@@ -71,7 +71,7 @@ void *pop(ArrayList *l, int i) {
 
   void *datoAEliminar = l->data[i];
 
-  for (int j = i; j < l->size; j++) {
+  for (int j = i; j < l->size-1; j++) {
     l->data[j] = l->data[j+1];
   }
 
