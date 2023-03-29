@@ -86,4 +86,7 @@ void *pop(ArrayList *l, int i) {
 int get_size(ArrayList *l) { return l->size; }
 
 // remove elements
-void clean(ArrayList *l) {}
+void clean(ArrayList *l) {
+  l->size = 0;
+  l->capacity = 2;
+}
