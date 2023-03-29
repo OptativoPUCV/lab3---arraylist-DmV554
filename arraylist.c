@@ -27,6 +27,7 @@ if(l->capacity == l->size) {
   }
 
   l->data[l->size] = data;
+  l->size++;
   
 }
 
