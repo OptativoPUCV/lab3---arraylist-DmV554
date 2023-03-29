@@ -42,26 +42,46 @@ void push(ArrayList *l, void *data, int i) {
   }
 
   for (int j = l->size - 1; j >= i; j--) {
-        l->data[j+1] = l->data[j];
-    }
+    l->data[j + 1] = l->data[j];
+  }
 
   l->data[i] = data;
   l->size++;
 }
 
-void *pop(ArrayList *l, int i) { return NULL; }
+void *get(ArrayList *l, int i) {
+  if (i >= l->size)
+    return NULL;
 
-void *get(ArrayList *l, int i) { 
-  if(i>=l->size) return NULL; 
-
-  if(i<0) {
+  if (i < 0) {
     i = i + l->size;
-
-  } 
+  }
 
   return l->data[i];
-  
 }
+
+void *pop(ArrayList *l, int i) { 
+  if (i < 0) {
+        i = l->size + i;
+    }
+  
+    if (i >= l->size) {
+        return NULL; 
+    }
+
+  void *datoAEliminar = l->data[i];
+
+  for (int j = i; j < l->size; j++) {
+    l->data[j] = l->data[j+1];
+  }
+
+  l->size--;
+
+  
+  return datoAEliminar;
+}
+
+
 
 int get_size(ArrayList *l) { return l->size; }
 
