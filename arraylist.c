@@ -55,9 +55,8 @@ void *get(ArrayList *l, int i) {
   if(i>=l->size) return NULL; 
 
   if(i<0) {
-    int IndiceNuevo = i + l->size;
+    i = i + l->size;
 
-    return l->data[IndiceNuevo];
   } 
 
   return l->data[i];
