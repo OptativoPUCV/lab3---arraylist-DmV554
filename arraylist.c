@@ -57,6 +57,8 @@ void *get(ArrayList *l, int i) {
     i = i + l->size;
   }
 
+  if(i<0 || i>= l->size) return NULL;
+
   return l->data[i];
 }
 
@@ -89,7 +91,6 @@ int get_size(ArrayList *l) { return l->size; }
 void clean(ArrayList *l) {
   free(l->data); 
   l->capacity = 2;
-  l->data = malloc(l->capacity  * sizeof(void*));
+  l->data = malloc(l->capacity * sizeof(void*));
   l->size = 0;
-  
 }
